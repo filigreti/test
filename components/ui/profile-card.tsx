@@ -1,6 +1,12 @@
 import React from "react";
 
-export const ProfileCard = ({ image, username, link }: any) => {
+interface User {
+  image: Blob;
+  username: string;
+  link: string;
+}
+
+export const ProfileCard = ({ image, username, link }: User) => {
   return (
     <>
       <style>

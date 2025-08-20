@@ -7,8 +7,6 @@ import {
   DialogClose,
   DialogContent,
   DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -22,17 +20,19 @@ import { useId } from "react";
 export default function Dialog01() {
   const id = useId();
   const maxLength = 180;
-  const { value, characterCount, handleChange, maxLength: limit } = useCharacterLimit({
+  const {
+    value,
+    characterCount,
+    handleChange,
+    maxLength: limit,
+  } = useCharacterLimit({
     maxLength,
-    initialValue: "I'm passionate about building user-centric applications that solve problems.",
+    initialValue:
+      "I'm passionate about building user-centric applications that solve problems.",
   });
 
-  const {
-    previewUrl,
-    fileInputRef,
-    handleThumbnailClick,
-    handleFileChange,
-  } = useImageUpload();
+  const { previewUrl, fileInputRef, handleThumbnailClick, handleFileChange } =
+    useImageUpload();
 
   const profileImage = previewUrl || "https://github.com/shadcn.png";
 
@@ -45,7 +45,8 @@ export default function Dialog01() {
         <div
           className="px-6 py-4 h-36"
           style={{
-            background: "radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%)",
+            background:
+              "radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%)",
           }}
         />
 
@@ -77,22 +78,37 @@ export default function Dialog01() {
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1 space-y-1.5">
                 <Label htmlFor={`${id}-name`}>Full Name</Label>
-                <Input id={`${id}-name`} placeholder="E.g. John Doe" defaultValue="Margaret Villard" />
+                <Input
+                  id={`${id}-name`}
+                  placeholder="E.g. John Doe"
+                  defaultValue="Margaret Villard"
+                />
               </div>
               <div className="flex-1 space-y-1.5">
                 <Label htmlFor={`${id}-role`}>Role</Label>
-                <Input id={`${id}-role`} placeholder="Frontend Developer" defaultValue="Web Developer" />
+                <Input
+                  id={`${id}-role`}
+                  placeholder="Frontend Developer"
+                  defaultValue="Web Developer"
+                />
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1 space-y-1.5">
                 <Label htmlFor={`${id}-email`}>Email</Label>
-                <Input id={`${id}-email`} type="email" defaultValue="margaret@email.com" />
+                <Input
+                  id={`${id}-email`}
+                  type="email"
+                  defaultValue="margaret@email.com"
+                />
               </div>
               <div className="flex-1 space-y-1.5">
                 <Label htmlFor={`${id}-portfolio`}>Portfolio</Label>
-                <Input id={`${id}-portfolio`} defaultValue="https://margaret.com" />
+                <Input
+                  id={`${id}-portfolio`}
+                  defaultValue="https://margaret.com"
+                />
               </div>
             </div>
 
@@ -110,11 +126,17 @@ export default function Dialog01() {
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1 space-y-1.5">
                 <Label htmlFor={`${id}-github`}>GitHub</Label>
-                <Input id={`${id}-github`} placeholder="https://github.com/username" />
+                <Input
+                  id={`${id}-github`}
+                  placeholder="https://github.com/username"
+                />
               </div>
               <div className="flex-1 space-y-1.5">
                 <Label htmlFor={`${id}-linkedin`}>LinkedIn</Label>
-                <Input id={`${id}-linkedin`} placeholder="https://linkedin.com/in/username" />
+                <Input
+                  id={`${id}-linkedin`}
+                  placeholder="https://linkedin.com/in/username"
+                />
               </div>
             </div>
 

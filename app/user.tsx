@@ -1,12 +1,20 @@
 "use client";
 
+interface User {
+  id: string;
+  name: string;
+  login: string;
+  avatar_url: Blob;
+  url: string;
+}
+
 import { Input } from "@/components/ui/input";
 import ProfileCard from "@/components/ui/profile-card";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-function useDebounce(value: any, delay: number) {
+function useDebounce(value: string, delay: number) {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     const repsonse = setTimeout(() => {
@@ -33,6 +41,7 @@ const User = () => {
       const request = await axios.get("https://api.github.com/users");
       setResponse(request.data);
     } catch (error) {
+      console.log(error);
     } finally {
       setloading(false);
     }
@@ -44,7 +53,7 @@ const User = () => {
   const filteredUsers = () => {
     if (!debouncedSearch) return response;
 
-    return response.filter((user: any) =>
+    return response.filter((user: User) =>
       user?.login?.toLowerCase().includes(debouncedSearch.toLowerCase())
     );
   };
@@ -59,7 +68,7 @@ const User = () => {
       </div>
 
       <div className="grid md:grid-cols-3 gap-4 mt-20">
-        {filteredUsers().map((user: any) => (
+        {filteredUsers().map((user: User) => (
           <div key={user.id}>
             <Link href={`/users/${user.login}`}>
               <ProfileCard
